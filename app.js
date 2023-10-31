@@ -3,7 +3,7 @@ const scene = new THREE.Scene();
 
 // Create a camera
 const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
-camera.position.set(2, 2, 5);
+camera.position.set(0, 2, 5);
 
 // Create a WebGLRenderer and add it to the DOM
 const renderer = new THREE.WebGLRenderer();
@@ -25,10 +25,27 @@ const geometry = new THREE.BoxGeometry(2, 2, 2);
 
 // Create the cube mesh
 const cube = new THREE.Mesh(geometry, cubeMaterial);
-cube.position.x += 2;
+cube.position.x += 0;
 cube.position.y += 2;
 cube.position.z -= 2;
 scene.add(cube);
+
+
+// Membuat geometri bidang datar
+var planeGeometry = new THREE.PlaneGeometry(2, 2); // Ukuran bidang datar
+var planeMaterial = new THREE.MeshBasicMaterial({ color: 0xffff00}); // Warna bidang datar
+var plane = new THREE.Mesh(planeGeometry, planeMaterial);
+
+// Mengatur posisi vertikal bidang datar
+plane.position.y = 0.4; // Ubah nilai ini untuk mengatur posisi pada sumbu y
+plane.position.z = -1.5; // Ubah nilai ini untuk mengatur posisi pada sumbu z
+
+// Memutar bidang datar secara horizontal
+plane.rotation.x = -Math.PI / 2;
+
+// Menambahkan bidang datar ke dalam scene
+scene.add(plane);
+
 
 // Set up the ambient light
 const ambientLight = new THREE.AmbientLight(0x202020);
