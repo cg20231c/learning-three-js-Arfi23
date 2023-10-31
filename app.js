@@ -25,14 +25,14 @@ const geometry = new THREE.BoxGeometry(2, 2, 2);
 
 // Create the cube mesh
 const cube = new THREE.Mesh(geometry, cubeMaterial);
-cube.position.x += 0;
-cube.position.y += 2;
-cube.position.z -= 2;
+cube.position.x = 0;
+cube.position.y = 2;
+cube.position.z = -2;
 scene.add(cube);
 
 
 // Membuat geometri bidang datar
-var planeGeometry = new THREE.PlaneGeometry(2, 2); // Ukuran bidang datar
+var planeGeometry = new THREE.PlaneGeometry(2, 2); // Ukuran bidang datar - dimensi
 var planeMaterial = new THREE.MeshBasicMaterial({ color: 0xffff00}); // Warna bidang datar
 var plane = new THREE.Mesh(planeGeometry, planeMaterial);
 
@@ -42,6 +42,11 @@ plane.position.z = -1.5; // Ubah nilai ini untuk mengatur posisi pada sumbu z
 
 // Memutar bidang datar secara horizontal
 plane.rotation.x = -Math.PI / 2;
+
+// Mengubah ukuran dengan scale
+plane.scale.x = 1.5;
+plane.scale.y = 1.5;
+plane.scale.z = 1.5;
 
 // Menambahkan bidang datar ke dalam scene
 scene.add(plane);
