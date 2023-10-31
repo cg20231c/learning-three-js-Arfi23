@@ -12,12 +12,12 @@ document.body.appendChild(renderer.domElement);
 
 // Load the texture
 const textureLoader = new THREE.TextureLoader();
-const cubeTexture = textureLoader.load('/ThreeJS/texture1/albedo.jpg');
-
+const cubeTexture = textureLoader.load('texture1/albedo.jpg');
 
 // Create cube material with texture
 const cubeMaterial = new THREE.MeshPhongMaterial({
-    map: cubeTexture
+    //map: cubeTexture
+    color: 0x00ff00
 });
 
 // Create the cube geometry
@@ -25,6 +25,9 @@ const geometry = new THREE.BoxGeometry(2, 2, 2);
 
 // Create the cube mesh
 const cube = new THREE.Mesh(geometry, cubeMaterial);
+cube.position.x += 2;
+cube.position.y += 2;
+cube.position.z -= 2;
 scene.add(cube);
 
 // Set up the ambient light
@@ -38,7 +41,7 @@ scene.add(directionalLight);
 
 // Set up the point light
 const pointLight = new THREE.PointLight(0xFFFFFF, 1); // Color and intensity
-pointLight.position.set(1, 2, 3); // Position
+pointLight.position.set(0, 2, 2); // Position
 scene.add(pointLight);
 
 // Handle resize events
